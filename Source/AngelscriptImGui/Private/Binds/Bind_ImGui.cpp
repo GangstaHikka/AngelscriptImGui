@@ -1600,6 +1600,30 @@ FAngelscriptBinds::FBind Bind_ImGui_Menu_Widgets(FAngelscriptBinds::EOrder::Late
 	{
 		return ImGui::BeginMenu(ToImGui(Label), bEnabled);
 	});
+
+	FAngelscriptBinds::BindGlobalFunction("bool TreeNode(const FString& Label)",
+	[](const FString& Label) -> bool
+	{
+		return ImGui::TreeNode(ToImGui(Label));
+	});
+
+	FAngelscriptBinds::BindGlobalFunction("void TreePop()",
+	[]() -> void
+	{
+		ImGui::TreePop();
+	});
+
+	
+
+	
+
+	FAngelscriptBinds::BindGlobalFunction("bool CollapsingHeader(const FString& Label)",
+	[](const FString& Label) -> bool
+	{
+		return ImGui::CollapsingHeader(ToImGui(Label));
+	});
+
+	
 	FAngelscriptBinds::BindGlobalFunction("void EndMenu()",
 	[]() -> void
 	{
